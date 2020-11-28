@@ -1,0 +1,19 @@
+<div class="app-container">
+  <div class="app-toolbar">
+    <div class="app-toolbar-left">
+      <button *ngIf="parentId !== undefined" class="app-back_button" (click)="navigateToFolder(parentId)"></button>
+    </div>
+    <div class="app-toolbar-right">
+      <button class="app-new-button" (click)="openModal()"></button>
+    </div>
+  </div>
+
+  <div *ngIf="element" class="app-content">
+    <div *ngFor="let elem of element.children" class="app-element">
+      <div class="app-element-container">
+        <div class="app-type-{{elem.type}}" (click)="navigateToFolder(elem.id)"></div>
+        <div class="app-element-name">{{elem.name}}</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+.app {
+  &-container {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  &-content {
+    display: flex;
+  }
+
+  &-toolbar {
+    height: 50px;
+    display: flex;
+
+    &-right {
+      margin-right: 50px;
+      margin-left: auto;
+    }
+  }
+
+  &-back_button {
+    background: url('/assets/images/back.png') no-repeat center;
+    background-size: contain;
+    height: 50px;
+    width: 50px;
+    border: 0px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  &-type {
+    &-folder {
+      background: url('/assets/images/folder.png') no-repeat center;
+      background-size: contain;
+      height: 50px;
+      width: 50px;
+      border: 0px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    &-file {
+      background: url('/assets/images/file.png') no-repeat center;
+      background-size: contain;
+      height: 50px;
+      width: 50px;
+      border: 0px;
+      cursor: pointer;
+      outline: none;
+    }
+  }
+
+  &-element {
+    margin: 0 20px;
+
+    &-name {
+      text-align: center;
+    }
+  }
+
+  &-new-button {
+    background: url('/assets/images/plus.png') no-repeat center;
+    background-size: contain;
+    height: 50px;
+    width: 50px;
+    border: 0px;
+    cursor: pointer;
+    outline: none;
+  }
+
+}

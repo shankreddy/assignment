@@ -1,0 +1,16 @@
+<div *ngIf="sharedService.modal$ | async" class="app-modal">
+  <div class="app-modal-container">
+    <div class="app-modal-field">
+      <label>Name:</label>
+      <input [(ngModel)]="inputText" type="text"/>
+    </div>
+    <div class="app-modal-field">
+      <label>Type:</label>
+      <select [(ngModel)]="type">
+        <option value="file">File</option>
+        <option value="folder">Folder</option>
+      </select>
+    </div>
+    <button [disabled]="!inputText || !type" class="app-modal-create" (click)="createElement()">Create</button>
+  </div>
+</div>

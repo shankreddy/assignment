@@ -1,0 +1,97 @@
+{
+  "id": 0,
+  "name": "Root",
+  "type": "root",
+  "children": [
+    {
+      "id": 1,
+      "type": "folder",
+      "name": "Images",
+      "children": [
+        {
+          "id": 4,
+          "type": "folder",
+          "name": "2010",
+          "children": [
+            {
+              "id": 10,
+              "type": "file",
+              "name": "Image1"
+            },
+            {
+              "id": 11,
+              "type": "folder",
+              "name": "New Folder",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "type": "folder",
+          "name": "2020",
+          "children": [
+            {
+              "id": 12,
+              "type": "file",
+              "name": "Image1"
+            },
+            {
+              "id": 13,
+              "type": "folder",
+              "name": "New Folder",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "folder",
+      "name": "Videos",
+      "children": [
+        {
+          "id": 6,
+          "type": "folder",
+          "name": "Images",
+          "children": [
+            {
+              "id": 14,
+              "type": "file",
+              "name": "Image1"
+            },
+            {
+              "id": 15,
+              "type": "folder",
+              "name": "New Folder",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "folder",
+      "name": "Documents",
+      "children": [
+        {
+          "id": 7,
+          "type": "file",
+          "name": "Doc1"
+        },
+        {
+          "id": 8,
+          "type": "file",
+          "name": "Doc2"
+        },
+        {
+          "id": 9,
+          "type": "file",
+          "name": "Doc3"
+        }
+      ]
+    }
+  ]
+}

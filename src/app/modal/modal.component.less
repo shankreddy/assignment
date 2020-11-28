@@ -1,0 +1,52 @@
+.app-modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,55,.8);
+  top: 0;
+  position: absolute;
+
+  &-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 250px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around ;
+    background: #fff;
+    padding: 15px;
+
+    button {
+      background-color: #ff008c;
+      color: #fff;
+      border: 1px solid transparent;
+      transition: .3s;
+      height: 30px;
+      font-size: 15px;
+      width: 70px;
+      cursor: pointer;
+
+      &:disabled {
+        background-color: #ffe6f4;
+      }
+    }
+  }
+
+  &-field {
+    display: flex;
+
+    label {
+      width: 50px;
+      color: #686868;
+      font-weight: bold;
+    }
+
+    input, select {
+      margin-left: 20px;
+    }
+  }
+}
