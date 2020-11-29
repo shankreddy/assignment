@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {switchMap, takeUntil} from 'rxjs/operators';
+import {map, switchMap, takeUntil} from 'rxjs/operators';
 import {Element, ELEMENT_TYPE} from '../model/element';
 import {Observable, of, ReplaySubject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
@@ -22,6 +22,8 @@ export class FolderFilesComponent implements OnInit, OnDestroy {
 
   public parentId: number;
 
+  public displayRuleData;
+
   constructor(private http: HttpClient,
               private sharedService: SharedService) {
   }
@@ -39,20 +41,22 @@ export class FolderFilesComponent implements OnInit, OnDestroy {
       }
       this.element.children.push(value);
       this.dataMap[value.id] = value;
-      this.build();
+      this.build().pipe(takeUntil(this.destroyed$));;
       this.sharedService.modal$.next(false);
     });
   }
 
   private build(): Observable<void> {
+    /* small condition to display rule data on page */
+    if (this.id === 99999999) {
+      this.displayRuleData = true;
+      this.parentId = 0;
+      return of();
+    }
+    this.displayRuleData = false;
     this.element = this.dataMap[this.id ? this.id : 0];
     if (!this.element) {
       this.id = 0;
-      return of();
-    }
-    /* if element type file redirect to parent folder */
-    if (this.element.type === ELEMENT_TYPE.File) {
-      this.id = this.element.parentId;
       return of();
     }
     this.parentId = this.element.parentId;

@@ -7,12 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 import {ModalComponent} from './modal/modal.component';
 import {SharedService} from './service/shared.service';
 import {FormsModule} from '@angular/forms';
+import {RuleDataComponent} from './rule-data/rule-data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FolderFilesComponent,
-    ModalComponent
+    ModalComponent,
+    RuleDataComponent
   ],
     imports: [
         BrowserModule,

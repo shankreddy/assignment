@@ -1,0 +1,12 @@
+<div *ngIf="data && data.length" class="app-data-container">
+  <div class="app-data-content" *ngFor="let rule of data index as i trackBy:trackByRule" >
+    <div class="app-data-rule_id">{{rule.id}}</div>
+    <div class="app-data-rule_name">{{rule.ruleName}}</div>
+    <div class="app-data-rule_operation">
+      <button (click)="performOperation('delete', i)">Delete</button>
+      <button (click)="performOperation('clone', i)">Clone</button>
+      <button (click)="performOperation('move-up', i)">Move up</button>
+      <button (click)="performOperation('move-down', i)">Move down</button>
+    </div>
+  </div>
+</div>

@@ -92,6 +92,11 @@
           "name": "Doc3"
         }
       ]
+    },
+    {
+      "id": 99999999,
+      "type": "rule-file",
+      "name": "Rule"
     }
   ]
 }
