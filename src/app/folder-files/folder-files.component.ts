@@ -3,7 +3,6 @@ import {switchMap, takeUntil} from 'rxjs/operators';
 import {Element, ELEMENT_TYPE} from '../model/element';
 import {Observable, of, ReplaySubject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {ActivationEnd, Router} from '@angular/router';
 import {SharedService} from '../service/shared.service';
 
 @Component({
@@ -24,16 +23,7 @@ export class FolderFilesComponent implements OnInit, OnDestroy {
   public parentId: number;
 
   constructor(private http: HttpClient,
-              private router: Router,
               private sharedService: SharedService) {
-    this.router.events.subscribe(event => {
-      if (event instanceof ActivationEnd) {
-        this.id = event.snapshot.params.id;
-        if (Object.keys(this.dataMap).length) {
-          this.build().pipe(takeUntil(this.destroyed$));
-        }
-      }
-    });
   }
   ngOnInit(): void {
     this.dataMap = {} as {id: string, element: Element};
@@ -57,20 +47,21 @@ export class FolderFilesComponent implements OnInit, OnDestroy {
   private build(): Observable<void> {
     this.element = this.dataMap[this.id ? this.id : 0];
     if (!this.element) {
-      this.router.navigateByUrl('home/');
+      this.id = 0;
       return of();
     }
     /* if element type file redirect to parent folder */
     if (this.element.type === ELEMENT_TYPE.File) {
-      this.router.navigateByUrl('home/' + this.element.parentId);
+      this.id = this.element.parentId;
       return of();
     }
     this.parentId = this.element.parentId;
     return of();
   }
 
-  navigateToFolder(id: string): void {
-    this.router.navigateByUrl('home/' + (id ? id : ''));
+  navigateToFolder(id: number): void {
+    this.id = id;
+    this.build().pipe(takeUntil(this.destroyed$));
   }
 
   private getData(): Observable<void> {
